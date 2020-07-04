@@ -14,4 +14,29 @@ class ItemModel {
         $new_item = DB::table('items')->insert($data);
         return $new_item;
     }
+
+    public static function find_by_id($id){
+        $item = DB::table('items')
+                    ->where('id', $id)->first();
+        return $item;
+    }
+
+    public static function update($id, $request){
+        $item = DB::table('items')
+                    ->where('id', $id)
+                    ->update([
+                        'title'=>$request['title'],
+                        'question'=>$request['question'],
+                    ]);
+        return $item;
+
+    }
+
+    public static function destroy($id){
+        $deleted = DB::table('items')
+                    ->where('id', $id) 
+                    ->delete();
+
+        return $deleted;
+    }
 }

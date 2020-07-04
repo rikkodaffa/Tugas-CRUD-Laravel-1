@@ -21,3 +21,8 @@ Route::get('/items', 'ItemController@index');
 Route::get('/items1/create', 'Item1Controller@create');
 Route::get('/items1/id', 'Item1Controller@index');
 Route::post('/items1/id', 'Item1Controller@store');
+Route::get('/items/{id}', 'ItemController@show');
+Route::get('/items1/{id}', 'Item1Controller@show');
+Route::get('items/{id}/edit', 'ItemController@edit');
+Route::put('/items/{id}', 'ItemController@update');
+Route::delete('items/{id}', 'ItemController@destroy');

@@ -24,5 +24,10 @@ class Item1Controller extends Controller
         //dd($items);
         return view('item.index1', compact('items1'));
     }
+    
+    public function show($id){
+        $item = Item1Model::find_by_id($id);
+        return view('item.show', compact('item'));
+    }
 
 }
